@@ -86,6 +86,10 @@ module "opal_file_handler_service_file_store" {
     {
       name        = "allpay"
       access_type = "private"
+    },
+    {
+      name        = "bteckoh"
+      access_type = "private"
     }
   ]
 
@@ -126,6 +130,12 @@ resource "azurerm_key_vault_secret" "bteckoh_report_container_name" {
   name         = "bteckoh-report-container-name"
   key_vault_id = module.opal_key_vault.key_vault_id
   value        = "bteckoh-report"
+}
+
+resource "azurerm_key_vault_secret" "bteckoh_container_name" {
+  name         = "bteckoh-container-name"
+  key_vault_id = module.opal_key_vault.key_vault_id
+  value        = "bteckoh"
 }
 
 resource "azurerm_key_vault_secret" "caps_report_container_name" {
